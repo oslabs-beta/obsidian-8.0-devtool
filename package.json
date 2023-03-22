@@ -1,0 +1,22 @@
+{
+  "name": "obsidian-8.0-devtool",
+  "version": "1.0.0",
+  "description": "a devtool for deno's obsidian caching solution",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidMNorman/obsidian-8.0-devtool.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidMNorman/obsidian-8.0-devtool/issues"
+  },
+  "homepage": "https://github.com/DavidMNorman/obsidian-8.0-devtool#readme",
+  "dependencies": {
+    
+  }
+}

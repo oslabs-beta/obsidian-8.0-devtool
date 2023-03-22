@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Obsidian 8.0 Developer Tool",
+  "version": "1.0.0",
+  "description": "Developer tool for Obsidian Deno module",
+  "author": "David Kim, David Norman, Eileen Cho, Joan Manto",
+  "action": {
+    "default_title": "Obsidian DevTool"
+  },
+  "devtools_page": "./src/devtools/index.html",
+  "content_scripts": [{
+    "matches": ["*://localhost:*/*"],
+    "js": ["./src/devtools/devtools.js"]
+  }],
+  "permissions": [
+    "storage"
+  ],
+  "externally_connectable": {
+    "matches": ["*://localhost:*/*"]
+  }
+}
