@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './stylesheets/App.css';
 import Testpanel from './panels/testpanel.jsx';
 import Dashboard from './panels/dashboard.jsx';
@@ -14,9 +14,20 @@ function App() {
     "testpanel": <Testpanel />
   };
 
-  // const routeResult = useRoutes(routes);
+  // put chrome.runtime.connect in useEffect
+  // save the connect in a variable
+  // add listener on the port variable for onMessage
 
   const [currentlyOpen, setCurrentlyOpen] = useState('dashboard');
+
+  useEffect(() => {
+    console.log('inside extensions App.jsx useEffect');
+    const port = chrome.runtime.connect();
+    port.onMessage.addListener((message, sender, sendResponse)=> {
+      console.log('in port listener!');
+      console.log('message is in APP!!!', message);
+    });
+  }, [])
 
   // return (
     // <div className="App">

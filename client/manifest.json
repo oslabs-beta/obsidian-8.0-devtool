@@ -8,10 +8,16 @@
     "default_title": "Obsidian DevTool"
   },
   "devtools_page": "./src/devtools/index.html",
-  "content_scripts": [{
-    "matches": ["*://localhost:*/*"],
-    "js": ["./src/devtools/devtools.js"]
-  }],
+  "content_scripts": [
+    {
+      "matches": ["*://localhost:*/*"],
+      "js": ["./src/devtools/content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "./src/devtools/background.js",
+    "type": "module"
+  },
   "permissions": [
     "storage"
   ],
