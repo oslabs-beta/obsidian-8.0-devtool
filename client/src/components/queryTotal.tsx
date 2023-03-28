@@ -5,9 +5,9 @@ import { useQueryContext } from '../hooks/useQueryContext';
 const QueryTotal = () => {
   const { state } = useQueryContext();
   return (
-    <div>
-      This is the QueryTotal component.
-      Query Total: {state.totalQueries}
+    <div id='queryTotalContainer'>
+      <span className='label-text'>TOTAL QUERIES</span>
+      <span className='value-text'>{state.totalQueries}</span>
     </div>
   )
 };

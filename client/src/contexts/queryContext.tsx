@@ -5,7 +5,7 @@ import { action } from '../types';
 type State = {
   totalQueries: number,
   totalHits: number,
-  queryMetrics: Array<{name: number, time: number}>,
+  queryMetrics: Array<{name: number, time: number, hit: boolean}>,
 };
 
 
