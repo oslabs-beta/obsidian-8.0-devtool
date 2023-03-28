@@ -3,7 +3,9 @@ import { Link, Navigate } from 'react-router-dom';
 import { Route } from '../types';
 
 type NavbarProps = {
-  setCurrentlyOpen: React.Dispatch<React.SetStateAction<keyof Route>>
+  currentlyOpen: keyof Route,
+  setCurrentlyOpen: React.Dispatch<React.SetStateAction<keyof Route>>,
+  algo: string
 }
 
 const Navbar = (props: NavbarProps) => {
@@ -16,8 +18,24 @@ const Navbar = (props: NavbarProps) => {
 
   return(
     <nav>
-      <button id="dashboard" onClick={handleClick}>Dashboard</button>
-      <button id="testpanel" onClick={handleClick}>Test Panel</button>
+      <button id="dashboard"
+      onClick={handleClick}
+      className={props.currentlyOpen === 'dashboard' ? 'active' : ''}>
+        Dashboard
+      </button>
+      {/* {if props.algo = wtinylfu, display a panel for Adaptivity} */}
+      {props.algo === 'W-TinyLFU' &&
+        <button id="adaptivity"
+        onClick={handleClick}
+        className={props.currentlyOpen === 'adaptivity' ? 'active' : ''}>
+          Adaptivity
+        </button>
+      }
+      <button id="testpanel" 
+      onClick={handleClick} 
+      className={props.currentlyOpen === 'testpanel' ? 'active' : ''}>
+        Test Panel
+      </button>
     </nav>
   )
   

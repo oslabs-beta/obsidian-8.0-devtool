@@ -3,14 +3,11 @@ export type Route = {
 }
 
 export type DOMMessage = {
-  type: string,
-  hit: boolean,
-  name: number,
-  time: number
+  [key: string]: any
 };
 
 export type dashboardProps = {
-  [key: string]: string | number | boolean
+  [key: string]: string | number | boolean | null
 }
 
 export type action = {
