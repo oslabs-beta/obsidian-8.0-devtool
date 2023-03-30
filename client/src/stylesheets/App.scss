@@ -128,3 +128,53 @@ button:hover{
   height: 60vh;
   width: 65vw;
 }
+
+.line-chart {
+  height: 70vh;
+  width: 80vw;
+}
+
+.listItem {
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid black;
+  border-radius: 10px;
+  margin: 0.5em;
+  width: 80vw;
+  padding: 1em;
+}
+
+.listItem:hover {
+  background-color: $grey;
+  cursor: pointer;
+}
+
+.innerListItem {
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  span {
+    background-color: inherit;
+  }
+}
+
+.hit {
+  border: 0.5px solid $green;
+}
+
+.hit:hover {
+  background-color: $green;
+}
+
+.miss {
+  border: 0.5px solid $red;
+}
+
+.miss:hover{
+  background-color: $red;
+}
+
+.querylog {
+  height: 100vh;
+  overflow: scroll;
+}

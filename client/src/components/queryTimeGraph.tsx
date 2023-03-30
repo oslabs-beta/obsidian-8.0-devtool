@@ -8,8 +8,7 @@ import {
   Tooltip,
   Legend,
   ChartOptions,
-  ChartData,
-  Colors
+  ChartData
 } from 'chart.js'
 import { Bar } from 'react-chartjs-2';
 import { useQueryContext } from '../hooks/useQueryContext';
@@ -18,10 +17,10 @@ const QueryTimeGraph = () => {
   const { state } = useQueryContext();
   console.log('state.queryMetrics in queryTimeGraph is ', state.queryMetrics)
 
-  //linearscale - needed for the y-axis of time since this is numerical
-  //categoryscale - needed for the x-axis of name since this is "custom"
+  // linearscale - needed for the y-axis of time since this is numerical
+  // categoryscale - needed for the x-axis of name since this is "custom"
   // to learn more about importing and registering elements, see https://react-chartjs-2.js.org/docs/migration-to-v4/#tree-shaking
-  ChartJS.register(LinearScale, CategoryScale, BarElement, Title, Tooltip, Legend, Colors);
+  ChartJS.register(LinearScale, CategoryScale, BarElement, Title, Tooltip, Legend);
   
   const options: ChartOptions<'bar'> = {
     responsive: true,

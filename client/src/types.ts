@@ -14,3 +14,9 @@ export type action = {
   type: string,
   payload: any
 }
+
+export type ListItemType = {
+  data: {
+    [key: string]: string | number | boolean
+  },
+}
