@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './stylesheets/App.scss';
-import Testpanel from './panels/testpanel.jsx';
+import QueryLog from './panels/queryLog.js';
 import Dashboard from './panels/dashboard.jsx';
 import Adaptivity from './panels/adaptivity.jsx';
 import Navbar from './components/Navbar';
@@ -18,7 +18,7 @@ function App(): JSX.Element {
   const { dispatch } = useQueryContext();
   const routes: Route = {
     'dashboard': <Dashboard algo={algo} capacity={capacity}/>,
-    'testpanel': <Testpanel />,
+    'querylog': <QueryLog />,
     'adaptivity': <Adaptivity />
   };
 
@@ -54,8 +54,10 @@ function App(): JSX.Element {
         message.hit === true ? situation = 'ADD_HIT_QUERY' : situation = 'ADD_MISSED_QUERY';
         const metrics = {
           time: message.time,
-          name: message.name,
-          hit: message.hit
+          date: message.date,
+          hit: message.hit,
+          query: message.query,
+          mutation: false
         }
         dispatch({type: situation, payload: metrics});
         console.log('this is metrics in App as payload', metrics)

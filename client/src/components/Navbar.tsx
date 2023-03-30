@@ -31,10 +31,10 @@ const Navbar = (props: NavbarProps) => {
           Adaptivity
         </button>
       }
-      <button id="testpanel" 
+      <button id="querylog" 
       onClick={handleClick} 
-      className={props.currentlyOpen === 'testpanel' ? 'active' : ''}>
-        Test Panel
+      className={props.currentlyOpen === 'querylog' ? 'active' : ''}>
+        Query Log
       </button>
     </nav>
   )

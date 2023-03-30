@@ -13,7 +13,13 @@ window.addEventListener('message', msg => {
     chrome.runtime.sendMessage({algo: msg.data.algo, capacity: msg.data.capacity})
   } else if(msg.data.type === 'query'){
     // this is for all queries made
-    chrome.runtime.sendMessage({type: msg.data.type, time: msg.data.time, name: msg.data.name, hit: msg.data.hit});
+    chrome.runtime.sendMessage({
+      type: msg.data.type,
+      time: msg.data.time,
+      date: msg.data.date,
+      query: msg.data.query,
+      hit: msg.data.hit
+    });
   }
   }
 )

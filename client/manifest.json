@@ -19,7 +19,7 @@
     "type": "module"
   },
   "permissions": [
-    "storage"
+    "storage", "tabs"
   ],
   "externally_connectable": {
     "matches": ["*://localhost:*/*"]
