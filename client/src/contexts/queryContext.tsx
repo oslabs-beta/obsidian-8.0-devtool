@@ -7,11 +7,11 @@ const DEFAULT_POINTER_SIZE: number = 8;
 type State = {
   totalQueries: number,
   totalHits: number,
-  queryMetrics: Array<{date: number, time: number, hit: boolean, query: string, mutation: boolean}>,
+  queryMetrics: Array<{date: string, time: number, hit: boolean, query: string, mutation: boolean}>,
   hitSize: Array<number>,
   missSize: Array<number>,
   mutationSize: Array<number>,
-  open: string
+  open: {[key: string]: number | boolean | string }
 };
 
 
@@ -24,7 +24,7 @@ export const QueryContext = createContext<{state: State, dispatch: Dispatch<acti
     hitSize: [],
     missSize: [],
     mutationSize: [],
-    open: ''
+    open: {}
   }
 });
 
@@ -76,7 +76,7 @@ export const QueryContextProvider = ({ children }: {children: JSX.Element}) => {
     hitSize: [],
     missSize: [],
     mutationSize: [],
-    open: ''
+    open: {}
   };
 
   const [ state, dispatch ] = useReducer(queryMetricReducer, initial);

@@ -56,7 +56,8 @@ const QueryLogGraph = (props: any) => {
       let final = data[element[0].index];
       console.log('this is data', data);
       console.log('this is final', final);
-      dispatch({type: 'SET_OPEN', payload: final.date})
+      dispatch({type: 'SET_OPEN', payload: final});
+      props.setDisplay('selected');
     //   const canvasPosition = getRelativePosition(e, QueryLogGraph);
     //   console.log('canvas position is', canvasPosition);
     //   console.log('this is the click event', e);

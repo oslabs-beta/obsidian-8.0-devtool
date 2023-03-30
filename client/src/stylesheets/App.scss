@@ -178,3 +178,20 @@ button:hover{
   height: 100vh;
   overflow: scroll;
 }
+
+.display {
+  margin: 0.5em;
+  width: 10em;
+  border: 0.5px solid $grey;
+  padding: 0.25em;
+  border-radius: 10px;
+}
+
+.display:hover {
+  background-color: $grey;
+  cursor: pointer;
+}
+
+.show {
+  background-color: $grey;
+}
