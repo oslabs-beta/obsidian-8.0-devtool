@@ -17,6 +17,10 @@ export type action = {
 
 export type ListItemType = {
   data: {
-    [key: string]: string | number | boolean
+    [key: string]: string | number | boolean;
   },
+}
+
+export type DisplayRouteType = {
+  [key: string]: JSX.Element
 }
