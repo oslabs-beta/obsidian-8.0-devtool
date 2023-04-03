@@ -4,7 +4,6 @@ import App from './App';
 import './stylesheets/index.css';
 import { QueryContextProvider } from './contexts/queryContext';
 
-
 const root: ReactDOM.Root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>

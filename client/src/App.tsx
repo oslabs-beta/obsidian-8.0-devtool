@@ -9,9 +9,7 @@ import { useQueryContext } from './hooks/useQueryContext';
 
 //browser router and routes don't work - no urls in devtools
 
-
 function App(): JSX.Element {
-  // const [count, setCount] = useState(0)
   const [algo, setAlgo] = useState<string>('');
   const [capacity, setCapacity] = useState<number | null>(null);
   const [currentlyOpen, setCurrentlyOpen] = useState<keyof Route>('dashboard');
@@ -25,24 +23,15 @@ function App(): JSX.Element {
   // put chrome.runtime.connect in useEffect
   // save the connect in a variable
   // add listener on the port variable for onMessage
-
-  // const [currentlyOpen, setCurrentlyOpen]: [keyof Route, React.Dispatch<React.SetStateAction<keyof Route>>] = useState('dashboard');
-
   useEffect(() => {
-    console.log('inside extensions App.jsx useEffect');
-
-    // TEST
-    // chrome.runtime.onMessageExternal.addListener((message, sender, sendResponse) => {
-    //   console.log('made it inside app.tsx->useEffect->onMessageExternal')
-    //   console.log('message.data is ', message.data);
-    // });
+    // console.log('inside extensions App.jsx useEffect');
 
     const port: chrome.runtime.Port = chrome.runtime.connect();
     port.onMessage.addListener((message: DOMMessage, port: chrome.runtime.Port) => {
-      // sender: chrome.runtime.MessageSender,
-      // sendResponse: (response: DOMMessage) => void) => {
-      console.log('in port listener!');
-      console.log('message is in APP!!!', message);
+
+      // console.log('in port listener!');
+      // console.log('message is in APP!!!', message);
+
       if(message.algo) {
         setAlgo(message.algo);
         setCapacity(message.capacity);
@@ -71,6 +60,6 @@ function App(): JSX.Element {
       {currentlyOpen && routes[currentlyOpen]}
     </div>
   )
-}
+};
 
 export default App

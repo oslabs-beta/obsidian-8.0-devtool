@@ -5,10 +5,11 @@ import QueryHitRate from '../components/queryHitRate';
 import QueryTotal from '../components/queryTotal';
 import { dashboardProps } from '../types';
 
+// default landing panel of devtools
+// contains 3 main components - query hit rate, query total, query time graph
 export default function Dashboard(props: dashboardProps) {
   return(
     <div id='dashboardContainer'>
-      {/* <h1>This is the dashboard!</h1> */}
       <div id='dashboardSummary'>
         <div id='algocap'>
           {/* error for eslint here is ok, 
@@ -27,4 +28,4 @@ export default function Dashboard(props: dashboardProps) {
       </div>
     </div>
   )
-}
+};

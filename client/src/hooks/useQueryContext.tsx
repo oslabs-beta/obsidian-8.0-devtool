@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { QueryContext } from '../contexts/queryContext';
 
+// custom hook for ease of use of custom context; can grab state and dispatch from it
 export const useQueryContext = () => {
   const context = useContext(QueryContext);
 
@@ -9,4 +10,4 @@ export const useQueryContext = () => {
   };
 
   return context;
-}
+};
