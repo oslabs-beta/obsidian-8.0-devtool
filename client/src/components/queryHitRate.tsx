@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQueryContext } from '../hooks/useQueryContext';
 
+// used in dashboard panel, shows hit rate
 const QueryHitRate = () => {
   const { state } = useQueryContext();
   return (
@@ -10,6 +11,5 @@ const QueryHitRate = () => {
     </div>
   )
 };
-
 
 export default QueryHitRate;

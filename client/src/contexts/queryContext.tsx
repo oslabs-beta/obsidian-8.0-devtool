@@ -1,20 +1,14 @@
 import React from "react";
 import { createContext, useReducer, Dispatch } from "react";
 import { action } from '../types';
+import { State } from "../types";
 
+// sets a default pointer size for each point in the log graph
+// goal is that if a query log is clicked from the list,
+// the corresponding point in the graph will become bigger - not yet implemented but setup for state is done
 const DEFAULT_POINTER_SIZE: number = 8; 
 
-type State = {
-  totalQueries: number,
-  totalHits: number,
-  queryMetrics: Array<{date: string, time: number, hit: boolean, query: string, mutation: boolean}>,
-  hitSize: Array<number>,
-  missSize: Array<number>,
-  mutationSize: Array<number>,
-  open: {[key: string]: number | boolean | string }
-};
-
-
+// custom context for easier state management
 export const QueryContext = createContext<{state: State, dispatch: Dispatch<action>}>({
   dispatch: () => null,
   state: {

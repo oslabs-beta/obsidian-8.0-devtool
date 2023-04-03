@@ -1,15 +1,12 @@
 import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { Route } from '../types';
-
-type NavbarProps = {
-  currentlyOpen: keyof Route,
-  setCurrentlyOpen: React.Dispatch<React.SetStateAction<keyof Route>>,
-  algo: string
-}
+import { NavbarProps } from '../types';
 
 const Navbar = (props: NavbarProps) => {
 
+  // to handle conditional rendering of panels
+  // tried Browser Router initially but did not seem to work; may have something to do with having no endpoints
   const handleClick = (e: React.SyntheticEvent): void => {
     e.preventDefault();
     const target = e.target as HTMLButtonElement;
@@ -38,7 +35,6 @@ const Navbar = (props: NavbarProps) => {
       </button>
     </nav>
   )
-  
 };
 
 export default Navbar;

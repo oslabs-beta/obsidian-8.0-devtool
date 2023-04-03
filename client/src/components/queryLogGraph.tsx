@@ -15,14 +15,17 @@ import { getRelativePosition } from 'chart.js/helpers'
 import { Line } from 'react-chartjs-2';
 import { useQueryContext } from '../hooks/useQueryContext';
 
+// used in query log panel
+// shows color-coded graph of query time based on if hit, miss, or mutation
 const QueryLogGraph = (props: any) => {
+
   const { state, dispatch } = useQueryContext(); 
+
   ChartJS.register(LinearScale, CategoryScale, PointElement, Tooltip, LineElement, Legend);
 
   const options: ChartOptions<'line'> = {
     responsive: true,
     maintainAspectRatio: false,
-    //events: ['click'],
     plugins: {
       legend: {
         display: true,
@@ -51,18 +54,40 @@ const QueryLogGraph = (props: any) => {
       }
     },
     onClick: (e, element) => {
-      console.log('element is', element);
-      const data = state.queryMetrics.filter(el => el.mutation ? el.mutation : !el.mutation && el.hit ? el.hit : !el.hit);
+      // used as mapping on which filter to use for dataset
+      // to accurately filter the dataset where a point is clicked
+      const mapping = {
+        hit: (el: any) => el.hit && !el.mutation,
+        miss: (el: any) => !el.hit && !el.mutation,
+        mutation: (el: any) => el.mutation
+      };
+      let callback: any;
+
+      // console.log('element is', element);
+
+      // to set value of callback to be used in filter method
+      if(element[0].datasetIndex === 0){
+        callback = mapping.hit;
+      } else if(element[0]. datasetIndex === 1){
+        callback = mapping.miss;
+      } else {
+        callback = mapping.mutation;
+      };
+
+      // filtered data based on whether clicked element was from hit, miss, or mutation
+      const data = state.queryMetrics.filter(el => callback(el));
+
+      // selected element
       let final = data[element[0].index];
-      console.log('this is data', data);
-      console.log('this is final', final);
+
+      // console.log('this is data', data);
+      // console.log('this is final', final);
+
+      // moves view from All to Selected, with the selected element being the only one shown
       dispatch({type: 'SET_OPEN', payload: final});
       props.setDisplay('selected');
-    //   const canvasPosition = getRelativePosition(e, QueryLogGraph);
-    //   console.log('canvas position is', canvasPosition);
-    //   console.log('this is the click event', e);
     }
-  }
+  };
 
   const data: ChartData<'line'> = {
     labels: state.queryMetrics.map((el, index) => index + 1),
@@ -95,13 +120,13 @@ const QueryLogGraph = (props: any) => {
         pointHoverRadius: 20
       }
     ]
-  }
+  };
 
   return(
     <div className='line-chart'>
       <Line data={data} options={options} />
     </div>
   )
-}
+};
 
 export default QueryLogGraph;
