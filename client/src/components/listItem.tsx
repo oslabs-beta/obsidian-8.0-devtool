@@ -4,13 +4,27 @@ import { useQueryContext } from '../hooks/useQueryContext';
 
 // individual items in the list of query logs
 const ListItem = (props: ListItemType) => {
-  const { state } = useQueryContext();
+  const { state, dispatch } = useQueryContext();
 
   // to allow for each item to expand to show more details on click and collapse if already expanded
   const [expand, setExpand] = useState<boolean>(false);
 
   const handleClick = () => {
     setExpand(!expand);
+    const filter = props.data.mutation ? (el: any) => el.mutation : (props.data.hit ? (el: any) => el.hit && !el.mutation : (el: any) => !el.hit && !el.mutation);
+    console.log('filter is', filter);
+    const filtered = state.queryMetrics.filter(filter);
+    const index = filtered.indexOf(props.data);
+    console.log('index is', index);
+    const sizeArr = new Array(filtered.length);
+    sizeArr.fill(8);
+    sizeArr[index] = 20
+    if (props.data.mutation){
+      dispatch({type: 'SET_MUTATIONSIZE', payload: sizeArr});
+    } else if (props.data.hit){
+      dispatch({type: 'SET_HITSIZE', payload: sizeArr });
+    } 
+    else dispatch({type: 'SET_MISSSIZE', payload: sizeArr});
   };
 
 //   console.log('props.data in listItem is', props.data);

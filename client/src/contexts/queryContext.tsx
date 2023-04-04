@@ -55,6 +55,39 @@ const queryMetricReducer = (state: State, action: action): State => {
         missSize: [...state.missSize],
         mutationSize: [...state.mutationSize],
         open: action.payload
+      };
+
+    case 'SET_HITSIZE':
+      return {
+        totalQueries: state.totalQueries,
+        totalHits: state.totalHits,
+        queryMetrics: [...state.queryMetrics],
+        hitSize: action.payload,
+        missSize: [...state.missSize],
+        mutationSize: [...state.mutationSize],
+        open: state.open
+      };
+
+    case 'SET_MUTATIONSIZE':
+      return {
+        totalQueries: state.totalQueries,
+        totalHits: state.totalHits,
+        queryMetrics: [...state.queryMetrics],
+        hitSize: [...state.hitSize],
+        missSize: [...state.missSize],
+        mutationSize: action.payload,
+        open: state.open
+      };
+    
+    case 'SET_MISSSIZE':
+      return {
+        totalQueries: state.totalQueries,
+        totalHits: state.totalHits,
+        queryMetrics: [...state.queryMetrics],
+        hitSize: [...state.hitSize],
+        missSize: action.payload,
+        mutationSize: [...state.mutationSize],
+        open: state.open
       }
 
     default:

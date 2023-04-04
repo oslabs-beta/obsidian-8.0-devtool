@@ -11,7 +11,7 @@ const ReverseList = (props: any) => {
   // create list item for each query metric and push into array that will be shown in component
   const list: Array<JSX.Element> = [];
   for(let i: number = 0; i < state.queryMetrics.length; i++){
-    list.push(<ListItem data={state.queryMetrics[i]}/>)
+    list.push(<ListItem data={state.queryMetrics[i]} />)
   };
 
   return(
