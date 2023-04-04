@@ -51,10 +51,49 @@ const queryMetricReducer = (state: State, action: action): State => {
         totalQueries: state.totalQueries,
         totalHits: state.totalHits,
         queryMetrics: [...state.queryMetrics],
-        hitSize: [...state.hitSize],
-        missSize: [...state.missSize],
-        mutationSize: [...state.mutationSize],
+        hitSize: [...state.hitSize].fill(8),
+        missSize: [...state.missSize].fill(8),
+        mutationSize: [...state.mutationSize].fill(8),
         open: action.payload
+      };
+
+    case 'SET_HITSIZE':
+      const newMiss = [...state.missSize].fill(8);
+      const newMutation = [...state.mutationSize].fill(8);
+      return {
+        totalQueries: state.totalQueries,
+        totalHits: state.totalHits,
+        queryMetrics: [...state.queryMetrics],
+        hitSize: action.payload,
+        missSize: newMiss,
+        mutationSize: newMutation,
+        open: state.open
+      };
+
+    case 'SET_MUTATIONSIZE':
+      const newHit = [...state.hitSize].fill(8);
+      const newMisses = [...state.missSize].fill(8);
+      return {
+        totalQueries: state.totalQueries,
+        totalHits: state.totalHits,
+        queryMetrics: [...state.queryMetrics],
+        hitSize: newHit,
+        missSize: newMisses,
+        mutationSize: action.payload,
+        open: state.open
+      };
+    
+    case 'SET_MISSSIZE':
+      const newHits = [...state.hitSize].fill(8);
+      const newMutations = [...state.mutationSize].fill(8);
+      return {
+        totalQueries: state.totalQueries,
+        totalHits: state.totalHits,
+        queryMetrics: [...state.queryMetrics],
+        hitSize: newHits,
+        missSize: action.payload,
+        mutationSize: newMutations,
+        open: state.open
       }
 
     default:

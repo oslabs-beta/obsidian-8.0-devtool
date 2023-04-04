@@ -99,7 +99,7 @@ const QueryLogGraph = (props: any) => {
         borderColor: 'rgba(25, 201, 16, 0.4)',
         pointBackgroundColor: 'rgb(25, 201, 16)',
         pointRadius: state.hitSize,
-        pointHoverRadius: 25
+        pointHoverRadius: 20
       },
       {
         label: 'Miss Time',

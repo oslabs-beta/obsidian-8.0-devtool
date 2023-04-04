@@ -17,7 +17,11 @@ export type action = {
 
 export type ListItemType = {
   data: {
-    [key: string]: string | number | boolean;
+    date: string,
+    time: number, 
+    hit: boolean, 
+    query: string, 
+    mutation: boolean
   },
 };
 
