@@ -5,7 +5,7 @@ import { State } from "../types";
 
 // sets a default pointer size for each point in the log graph
 // goal is that if a query log is clicked from the list,
-// the corresponding point in the graph will become bigger - not yet implemented but setup for state is done
+// the corresponding point in the graph will become bigger
 const DEFAULT_POINTER_SIZE: number = 8; 
 
 // custom context for easier state management

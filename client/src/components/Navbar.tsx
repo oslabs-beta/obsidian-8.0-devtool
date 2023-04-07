@@ -20,14 +20,7 @@ const Navbar = (props: NavbarProps) => {
       className={props.currentlyOpen === 'dashboard' ? 'active' : ''}>
         Dashboard
       </button>
-      {/* {if props.algo = wtinylfu, display a panel for Adaptivity} */}
-      {props.algo === 'W-TinyLFU' &&
-        <button id="adaptivity"
-        onClick={handleClick}
-        className={props.currentlyOpen === 'adaptivity' ? 'active' : ''}>
-          Adaptivity
-        </button>
-      }
+      
       <button id="querylog" 
       onClick={handleClick} 
       className={props.currentlyOpen === 'querylog' ? 'active' : ''}>
