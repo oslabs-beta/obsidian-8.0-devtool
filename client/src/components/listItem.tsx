@@ -12,24 +12,17 @@ const ListItem = (props: ListItemType) => {
   const handleClick = () => {
     setExpand(!expand);
     const filter = props.data.mutation ? (el: any) => el.mutation : (props.data.hit ? (el: any) => el.hit && !el.mutation : (el: any) => !el.hit && !el.mutation);
-    console.log('filter is', filter);
+    // console.log('filter is', filter);
     const filtered = state.queryMetrics.filter(filter);
     const index = filtered.indexOf(props.data);
-    console.log('index is', index);
-    // const hits = [...state.hitSize].fill(8);
-    // const misses = [...state.missSize].fill(8);
-    // const mutations = [...state.mutationSize].fill(8);
+    // console.log('index is', index);
     const sizeArr = new Array(filtered.length);
     sizeArr.fill(8);
     sizeArr[index] = 20;
     if (props.data.mutation){
       dispatch({type: 'SET_MUTATIONSIZE', payload: sizeArr});
-      // dispatch({type: 'SET_HITSIZE', payload: hits});
-      // dispatch({type: 'SET_MISSSIZE', payload: misses})
     } else if (props.data.hit){
       dispatch({type: 'SET_HITSIZE', payload: sizeArr });
-      // dispatch({type: 'SET_MISSSIZE', payload: misses});
-      // dispatch({type: 'SET_MUTATIONSIZE', payload: mutations})
     } 
     else dispatch({type: 'SET_MISSSIZE', payload: sizeArr});
   };

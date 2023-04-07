@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import './stylesheets/App.scss';
 import QueryLog from './panels/queryLog.js';
 import Dashboard from './panels/dashboard.jsx';
-import Adaptivity from './panels/adaptivity.jsx';
 import Navbar from './components/Navbar';
 import { Route, DOMMessage } from './types';
 import { useQueryContext } from './hooks/useQueryContext';
@@ -16,8 +15,7 @@ function App(): JSX.Element {
   const { dispatch } = useQueryContext();
   const routes: Route = {
     'dashboard': <Dashboard algo={algo} capacity={capacity}/>,
-    'querylog': <QueryLog />,
-    'adaptivity': <Adaptivity />
+    'querylog': <QueryLog />
   };
 
   // put chrome.runtime.connect in useEffect
