@@ -1,9 +1,9 @@
-# Obsidian Developer Tool 8.0
+# Obsidian Developer Tool
 
 The Obsidian Developer Tool 8.0 is the revamped DevTool for applications using Obsidian with no additonal configuration needed. It's an easy-to-use chrome developer tool extension where users can:
 
-- visualize cache performance metrics (i.e. hit ratio, time graphs)
-- view previous queries through a query log and hit, miss, and mutation time trends
+- visualize client cache performance metrics (i.e. hit ratio, time graphs)
+- view previous queries through a query log and client hit, client miss, and mutation time trends
 
 The Obsidian Developer Tool is an open-source developer tool accelerated by OS Labs and developed by [David Kim](https://github.com/davidtoyoukim), [David Norman](https://github.com/DavidMNorman), [Eileen Cho](https://github.com/exlxxn), and [Joan Manto](https://github.com/JoanManto).
 
@@ -12,13 +12,13 @@ The Obsidian Developer Tool is an open-source developer tool accelerated by OS L
 Currently, the easiest way to use the developer tool is to build from source and manually add as a chrome extension. To build the latest version, please follow the below instructions.
 
 ```
-git clone https://github.com/open-source-labs/obsidian-developer-tool
-cd client
+git clone https://github.com/open-source-labs/obsidian-developer-tool.git
+cd obsidian-developer-tool/client
 npm install
 npm run build
 ```
 
-In the Chrome Extensions Page (chrome://extensions/), toggle "Developer Mode" on in the upper righthand corner. Click on the "Load Unpacked" button, and navigate to the client folder of the Obsidian repo. Click "Select", and the developer tool should now be loaded and available in the developer tools panel.
+In the Chrome Extensions Page (chrome://extensions/), toggle "Developer Mode" on in the upper righthand corner. Click on the "Load Unpacked" button, and navigate to the client folder of the Obsidian Developer Tool repo. Click "Select", and the developer tool should now be loaded and available in the developer tools panel.
 
 # Features
 
